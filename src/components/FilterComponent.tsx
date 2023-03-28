@@ -129,7 +129,9 @@ const FilterComponent = () => {
 
       <Col md={3}>
         <Button className="m-2">Search</Button>
-        <Button className="m-2">Clear</Button>
+        <Button color="grape" className="m-2">
+          Clear
+        </Button>
         <Button className="m-2">Export</Button>
         <Button className="m-2"> View Tickets</Button>
       </Col>

@@ -1,9 +1,5 @@
 import React from "react"
 import {
-  IconGitPullRequest,
-  IconAlertCircle,
-  IconMessages,
-  IconDatabase,
   IconDashboard,
   IconUser,
   IconUsers,

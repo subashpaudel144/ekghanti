@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react"
 import { AppShell, Navbar, Header, Group, Image, Button } from "@mantine/core"
 import { MainLinks } from "./_mainLinks"
-import Link from "next/link"
 import { IconBell } from "@tabler/icons-react"
 
 interface LayoutProps {
@@ -43,14 +42,6 @@ const Layout = ({ children }: LayoutProps) => {
           </Group>
         </Header>
       }
-      // styles={(theme) => ({
-      //   main: {
-      //     backgroundColor:
-      //       theme.colorScheme === "dark"
-      //         ? theme.colors.dark[8]
-      //         : theme.colors.gray[0],
-      //   },
-      // })}
     >
       {children}
     </AppShell>
