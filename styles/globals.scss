@@ -1,0 +1,31 @@
+/* Layout styles */
+
+.right_tools .notification_icon {
+  &:hover {
+    background: rgb(227, 227, 233);
+  }
+  position: relative;
+
+  cursor: pointer;
+
+  .count {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    top: -8px;
+    right: -6px;
+    background-color: red;
+    color: white;
+    padding: 1px 3px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.mantine-Group-root.p-1.text-light.mantine-k3ov3c {
+  border-radius: 8px;
+}

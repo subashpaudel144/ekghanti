@@ -4,16 +4,27 @@ import {
   IconAlertCircle,
   IconMessages,
   IconDatabase,
+  IconDashboard,
+  IconUser,
+  IconUsers,
+  IconReportAnalytics,
+  IconSettingsPause,
+  IconUserCircle,
+  IconTicket,
+  IconMail,
 } from "@tabler/icons-react"
 import { ThemeIcon, UnstyledButton, Group, Text } from "@mantine/core"
+import { useRouter } from "next/router"
 
 interface MainLinkProps {
   icon: React.ReactNode
   color: string
   label: string
+  pathname: string
 }
 
-function MainLink({ icon, color, label }: MainLinkProps) {
+function MainLink({ icon, color, label, pathname }: MainLinkProps) {
+  const router = useRouter()
   return (
     <UnstyledButton
       sx={(theme) => ({
@@ -32,7 +43,13 @@ function MainLink({ icon, color, label }: MainLinkProps) {
         },
       })}
     >
-      <Group>
+      <Group
+        onClick={() => router.push(pathname)}
+        style={{
+          background: `${router.pathname === pathname ? "blue" : ""}`,
+        }}
+        className={router.pathname === pathname ? "p-1 text-light" : ""}
+      >
         <ThemeIcon color={color} variant="light">
           {icon}
         </ThemeIcon>
@@ -45,45 +62,53 @@ function MainLink({ icon, color, label }: MainLinkProps) {
 
 const data = [
   {
-    icon: <IconGitPullRequest size="1rem" />,
+    icon: <IconDashboard size="1rem" />,
     color: "blue",
     label: "Main Dashboard",
+    pathname: "/",
   },
   {
-    icon: <IconAlertCircle size="1rem" />,
+    icon: <IconUser size="1rem" />,
     color: "teal",
     label: "Users",
+    pathname: "/users",
   },
   {
-    icon: <IconMessages size="1rem" />,
+    icon: <IconUsers size="1rem" />,
     color: "violet",
     label: "Groups",
-    redirect: "/discussions",
+
+    pathname: "/groups",
   },
   {
-    icon: <IconDatabase size="1rem" />,
+    icon: <IconReportAnalytics size="1rem" />,
     color: "grape",
     label: "Project",
+    pathname: "/project",
   },
   {
-    icon: <IconDatabase size="1rem" />,
+    icon: <IconSettingsPause size="1rem" />,
     color: "grape",
     label: "Ticket Status",
+    pathname: "/ticket-status",
   },
   {
-    icon: <IconDatabase size="1rem" />,
+    icon: <IconUserCircle size="1rem" />,
     color: "grape",
     label: "Role",
+    pathname: "/role",
   },
   {
-    icon: <IconDatabase size="1rem" />,
+    icon: <IconTicket size="1rem" />,
     color: "grape",
     label: "Ticket",
+    pathname: "/ticket",
   },
   {
-    icon: <IconDatabase size="1rem" />,
+    icon: <IconMail size="1rem" />,
     color: "grape",
     label: "SMS/Email",
+    pathname: "/sms-email",
   },
 ]
 
