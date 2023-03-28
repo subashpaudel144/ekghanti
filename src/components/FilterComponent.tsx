@@ -1,12 +1,13 @@
 import React from "react"
-import { Button, Group, Select } from "@mantine/core"
-import { useId } from "@mantine/hooks"
+import { Button, Group, Input, Select } from "@mantine/core"
 import { Row, Col } from "react-bootstrap"
 import { DateInput } from "@mantine/dates"
-import { ButtonGroup } from "@mantine/core/lib/Button/ButtonGroup/ButtonGroup"
 
-const FilterComponent = () => {
-  const id = useId()
+interface FilterComponentProps {
+  ticketPage?: boolean
+}
+
+const FilterComponent = ({ ticketPage }: FilterComponentProps) => {
   return (
     <Row>
       <Col md={4} className="mb-4">
@@ -33,10 +34,10 @@ const FilterComponent = () => {
           nothingFound="No options"
           maw={320}
           data={[
-            { value: "ram", label: "Ram" },
-            { value: "shyam", label: "Shyam" },
-            { value: "hari", label: "Hari" },
-            { value: "gita", label: "Gita" },
+            { value: "group1", label: "Group 1" },
+            { value: "group2", label: "Group 2" },
+            { value: "group3", label: "Group 3" },
+            { value: "group4", label: "Group 4" },
           ]}
         />
       </Col>
@@ -65,10 +66,11 @@ const FilterComponent = () => {
           nothingFound="No options"
           maw={320}
           data={[
-            { value: "ram", label: "Ram" },
-            { value: "shyam", label: "Shyam" },
-            { value: "hari", label: "Hari" },
-            { value: "gita", label: "Gita" },
+            { value: "drop call", label: "Drop Call" },
+            { value: "kyc update", label: "KYC Update" },
+            { value: "customer onboard", label: "Customer Unboard" },
+            { value: "issue in wallet load", label: "Issue in wallet load" },
+            { value: "other", label: "Other" },
           ]}
         />
       </Col>
@@ -76,15 +78,14 @@ const FilterComponent = () => {
       <Col md={4} className="mb-4">
         <Select
           label="Vertical :"
-          placeholder="Loading...vertical"
+          placeholder="choose vertical"
           searchable
           nothingFound="No options"
           maw={320}
           data={[
-            { value: "ram", label: "Ram" },
-            { value: "shyam", label: "Shyam" },
-            { value: "hari", label: "Hari" },
-            { value: "gita", label: "Gita" },
+            { value: "closed", label: "Closed" },
+            { value: "raised and closed", label: "Raised and closed" },
+            { value: "in progress", label: "In Progress" },
           ]}
         />
       </Col>
@@ -92,15 +93,13 @@ const FilterComponent = () => {
       <Col md={4} className="mb-4">
         <Select
           label="Sub-Vertical :"
-          placeholder="Loading...Sub-Vertical"
+          placeholder="choose sub vertical"
           searchable
           nothingFound="No options"
           maw={320}
           data={[
-            { value: "ram", label: "Ram" },
-            { value: "shyam", label: "Shyam" },
-            { value: "hari", label: "Hari" },
-            { value: "gita", label: "Gita" },
+            { value: "closed", label: "closed" },
+            { value: "cancelled", label: "cancelled" },
           ]}
         />
       </Col>
@@ -126,15 +125,37 @@ const FilterComponent = () => {
           ]}
         />
       </Col>
+      {ticketPage && (
+        <Col md={2}>
+          <Input.Wrapper label="Customer Number" maw={320} mx="auto">
+            <Input<any>
+              mask="+7 (000) 000-00-00"
+              placeholder="Customer Number"
+            />
+          </Input.Wrapper>
+        </Col>
+      )}
 
-      <Col md={3}>
-        <Button className="m-2">Search</Button>
-        <Button color="grape" className="m-2">
-          Clear
-        </Button>
-        <Button className="m-2">Export</Button>
-        <Button className="m-2"> View Tickets</Button>
-      </Col>
+      {!ticketPage && (
+        <Col md={3}>
+          <Button className="m-2">Search</Button>
+          <Button color="grape" className="m-2">
+            Clear
+          </Button>
+          <Button className="m-2">Export</Button>
+          <Button className="m-2"> View Tickets</Button>
+        </Col>
+      )}
+
+      {ticketPage && (
+        <div className="d-flex justify-content-end pe-5 mt-3 ticket_filter_buttons">
+          <Button className="m-2">Search</Button>
+          <Button color="grape" className="m-2">
+            Clear
+          </Button>
+          <Button className="m-2">Export Ticket</Button>
+        </div>
+      )}
     </Row>
   )
 }
