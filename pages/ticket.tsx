@@ -1,4 +1,5 @@
 import { Button } from "@mantine/core"
+import Head from "next/head"
 import React from "react"
 import FilterComponent from "../src/components/FilterComponent"
 import Layout from "../src/components/Layout"
@@ -8,6 +9,11 @@ import styles from "../styles/Home.module.css"
 const Ticket = () => {
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Tickets | Ekghanti Services</title>
+        <meta name="description" content="developed by Subash Paudel" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Layout>
         <section className="ticket_filter_section">
           <div className="d-flex justify-content-end me-5 add_ticket_button">

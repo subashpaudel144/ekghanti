@@ -1,5 +1,9 @@
 /* Layout styles */
 
+.logo_wrapper {
+  cursor: pointer;
+}
+
 .right_tools .notification_icon {
   &:hover {
     background: rgb(227, 227, 233);
@@ -77,7 +81,7 @@ table.mantine-Table-root.mantine-1ktk5bg {
       background-color: rgb(150, 244, 239);
 
       &:hover {
-        background-color: #ccd612;
+        background-color: #a5cbec;
       }
     }
   }
